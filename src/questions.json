@@ -1,0 +1,136 @@
+[
+    {
+        "question": "which of the following is invalid identifiers?",
+        "optionA": "sum-1",
+        "optionB": "sum_1",
+        "optionC": "power",
+        "optionD": "power_1",
+        "answer": "sum-1"
+    },
+
+    {
+        "question": "Which of the following is not a math function?",
+        "optionA": "acos",
+        "optionB": "sine",
+        "optionC": "cosh",
+        "optionD": "None of the above",
+        "answer": "None of the above"
+    },
+
+    {
+        "question": "Pick out the compound assignment statement",
+        "optionA": "x=x-5",
+        "optionB": "x=x/y",
+        "optionC": "x-=5",
+        "optionD": "x=x+5",
+        "answer": "x-=5"
+    },
+
+    {
+        "question": "Which operator is having the highest precedence?",
+        "optionA": "Postfix",
+        "optionB": "unary",
+        "optionC": "shift",
+        "optionD": "quality",
+        "answer": "Postfix"
+    },
+
+    {
+        "question": "What is the size of wchar_t in C++",
+        "optionA": "2",
+        "optionB": "4",
+        "optionC": "2 or 4",
+        "optionD": "Based on the number of bits in the system",
+        "answer": "Based on the number of bits in the system"
+    },
+
+    {
+        "question": "which of the following is not a set of binary operators?",
+        "optionA": "+,-,*",
+        "optionB": "++,--,*",
+        "optionC": "+,*,/",
+        "optionD": "&&,||,!",
+        "answer": "&&,||,!"
+    },
+
+    {
+        "question": "i++ is an example of..",
+        "optionA": "Post-increment",
+        "optionB": "Pre-increment",
+        "optionC": "post-decrement",
+        "optionD": "Pre-decrement",
+        "answer": "Post-increment"
+    },
+
+    {
+        "question": "Can we use keywords that cannot be used as an identifier?",
+        "optionA": "True",
+        "optionB": "False",
+        "optionC": "Statement is invalid",
+        "optionD": "None of the above",
+        "answer": "False"
+    },
+
+    {
+        "question": "Choose the odd one out .",
+        "optionA": "auto",
+        "optionB": "case",
+        "optionC": "unsigned",
+        "optionD": "int",
+        "answer": "int"
+    },
+
+    {
+        "question": "______ datatype represents a valueless entity",
+        "optionA": "enum",
+        "optionB": "union",
+        "optionC": "void",
+        "optionD": "none of the above",
+        "answer": "void"
+    },
+
+    {
+        "question": "Select the user-defined data types among the following?",
+        "optionA": "int",
+        "optionB": "float",
+        "optionC": "reference",
+        "optionD": "enum",
+        "answer": "enum"
+    },
+
+    {
+        "question": "which of the following is not a valid Derived Data TypesDerived Data Types?",
+        "optionA": "Reference (int& ref)",
+        "optionB": "pointer(int *ptr)",
+        "optionC": "Array (int A[])",
+        "optionD": "none of the above",
+        "answer": "none of the above"
+    },
+
+    {
+        "question": "Which keyword is used to define the user-defined data types?",
+        "optionA": "def",
+        "optionB": "union",
+        "optionC": "typedef",
+        "optionD": "type",
+        "answer": "typedef"
+    },
+
+    {
+        "question": "The correct syntax to declare a variable?",
+        "optionA": "int variable_list;",
+        "optionB": "variable_list type;",
+        "optionC": "type_variable_list",
+        "optionD": "none of the above",
+        "answer": "int variable_list;"
+    },
+
+    {
+        "question": "All C++ variables must be identified with unique names. These unique names are called _________.",
+        "optionA": "constant",
+        "optionB": "identifiers",
+        "optionC": "variable",
+        "optionD": "At that time",
+        "answer": "identifiers"
+    }
+]

@@ -1,0 +1,84 @@
+#home{
+    background-image: url('../../Assests/img/olav-ahrens-rotne-MAEbdaFe4ps-unsplash.jpg');
+    background-size: cover;
+    background-position: center;
+    display: flex;
+    justify-content: space-around;
+    height: 100vh;
+    width: auto;
+    
+    
+
+    section{
+        background-color: rgba($color: #000000, $alpha: 0.7);
+        padding-left: $md;
+        padding-right: $md;
+        border-radius: 5px;
+        height: 80%;
+        width: 40%;
+    }
+    .cube{
+        font-size: 8rem;
+        color: $orange;
+    }
+    h1{
+        font-size: $lg;
+        text-align: center;
+        font-weight:400;
+        color: $off-white; // here you can also use color directly or can use by variable
+    }
+    .play-button-container{
+        width: 100%;
+    }
+    a.play-button{
+        background-color: $green;
+        color: #fff;
+        border-radius: $button-radius;
+        display: block;
+        cursor: pointer;
+        padding: $normal;
+        text-align: center;
+        transition:0.3% linear all ;
+    }
+    a.play-button:hover{
+        background-color: darken($green, 10%);
+    }
+    .auth-container{
+        width: 100%;
+        display: flex;
+        justify-content: space-between;
+        margin-top: $lg;
+    }
+
+    #login-button{
+        background-color:$red;
+    }
+    #login-button:hover{
+        background-color:darken($red, 10%);
+    }
+    #signup-button{
+        background-color: $blue;
+    }
+    #signup-button:hover{
+        background-color:darken($blue, 10%);
+    }
+    .auth-container .auth-button{
+        color: #fff;
+        cursor: pointer;
+        border-radius: $button-radius;
+        padding:$normal 0;
+        text-align: center;
+        width: 45%;
+        transition:0.3% linear all ;
+
+    }
+}
+
+@media(max-width:768px){
+    #home section{
+        padding: 0 $normal;
+        
+        width: 100%;
+        height: 100%;
+    }
+}
