@@ -131,6 +131,9 @@ class Play extends React.Component{
             options.forEach(option =>{
                 option.style.visibility = 'visible';
             });
+            this.setState({
+                usedFiftyfifty:false
+            })
         }
 
         handlehint =()=>{
@@ -148,6 +151,7 @@ class Play extends React.Component{
                 const randomNumber = Math.round(Math.random() * 3)
                 if(randomNumber !== indexofAnswer && !this.state.previousRandomNumbers.includes(randomNumber)){
                     options.forEach((option,index)=>{
+                        
                         if(index === randomNumber){
                             option.style.visibility = 'hidden';
                             
@@ -167,10 +171,53 @@ class Play extends React.Component{
            } 
         }
     
-
+        handleFiftyfifty =()=>{
+           // console.log('clicked');
+            if(this.state.fiftyFifty > 0 && this.state.usedFiftyfifty === false){
+                const options = document.querySelectorAll('.option');
+                const randomNumbers = [];
+                let indexofAnswer;
+                options.forEach((option,index)=>{
+                    if(option.innerHTML.toLowerCase === this.state.answer.toLowerCase()){
+                        indexofAnswer = index;
+                    }
+                });
+                let count = 0;
+                do{
+                    const randomNumber = Math.round(Math.random()*3);
+                    if(randomNumber !== indexofAnswer){
+                        if(randomNumbers.length <2  && !randomNumbers.includes(randomNumber) && !randomNumbers.includes(indexofAnswer) ){
+                            randomNumbers.push(randomNumber);
+                            count++;
+                            
+                        }
+                        else{
+                            while(true){
+                                const newrandomnumber = Math.round(Math.random() *3);
+                                if(!randomNumbers.includes(newrandomnumber) && !randomNumbers.includes(indexofAnswer)){
+                                    randomNumbers.push(newrandomnumber);
+                                    count++;
+                                    break;
+                                }
+                            }
+                            console.log('my number-2',randomNumbers);
+                        }
+                    }
+                }while(count < 2);
+                options.forEach((option,index)=>{   
+                    if(randomNumbers.includes(index)){    
+                        option.style.visibility = 'hidden';
+                    }
+                });
+                this.setState(prevstate=>({
+                    fiftyFifty:prevstate.fiftyFifty - 1,
+                    usedFiftyfifty:true
+                }))
+            }
+        }
     render(){
        // console.log(questions);
-       const {currentQuestion,currentQuestionIndex,hints,numberofAnsweredQuestion} = this.state;
+       const {currentQuestion,currentQuestionIndex,fiftyFifty,hints,numberofAnsweredQuestion} = this.state;
         return(
             <Fragment>
                 <Helmet><title>Quiz Page</title></Helmet>
@@ -178,11 +225,15 @@ class Play extends React.Component{
                     <h3>Quiz Mode</h3>
                     <div className="lifeline-container">
                         <p>
-                            <span className="mdi mdi-set-center mdi-24px lifeline-icon"></span><span className="lifeline">2</span>
+                            <span onClick={this.handleFiftyfifty}className="mdi mdi-set-center mdi-24px lifeline-icon">
+                            <span className="lifeline">{fiftyFifty}</span>
+                            </span>
                         </p>
                         <p>
-                            <span onClick ={this.handlehint} className="mdi mdi-lightbulb-on-outline mdi-24px lifeline-icon"></span>
-                            <span>{hints}</span>
+                            <span onClick ={this.handlehint} className="mdi mdi-lightbulb-on-outline mdi-24px lifeline-icon">
+                            <span className="lifeline" >{hints}</span>
+                            </span>
+                            
                         </p>
 
                     </div>
