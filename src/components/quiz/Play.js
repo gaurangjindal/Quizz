@@ -23,6 +23,7 @@ class Play extends React.Component{
             hints:5,
             fiftyFifty:2,
             usedFiftyfifty:false,
+            previousRandomNumbers:[],
             time:{}
         };
 
@@ -47,7 +48,10 @@ class Play extends React.Component{
                 currentQuestion,
                 nextQuestion,
                 previousQuestion,
-                answer
+                answer,
+                previousRandomNumbers:[]
+            },()=>{
+              this.showOptions();  
             })
         }
     }
@@ -121,8 +125,17 @@ class Play extends React.Component{
             })
         }
 
+        showOptions =() =>{
+            const options = Array.from(document.querySelectorAll('.option'));
+
+            options.forEach(option =>{
+                option.style.visibility = 'visible';
+            });
+        }
+
         handlehint =()=>{
             //console.log('clicked')
+           if(this.state.hints > 0){
             const options = Array.from(document.querySelectorAll('.option'));
             let indexofAnswer;
 
@@ -133,21 +146,25 @@ class Play extends React.Component{
             });
             while(true){
                 const randomNumber = Math.round(Math.random() * 3)
-                if(randomNumber !== indexofAnswer){
+                if(randomNumber !== indexofAnswer && !this.state.previousRandomNumbers.includes(randomNumber)){
                     options.forEach((option,index)=>{
                         if(index === randomNumber){
-                            option.getElementsByClassName.visibility = 'hidden';
-                            this.setstate((prevstate)=>({
-                                hints:prevstate.hints-1
-                            })
-
-                            )
+                            option.style.visibility = 'hidden';
+                            
+                            this.setState(prevstate =>({
+                                hints:prevstate.hints - 1,
+                                previousRandomNumbers:prevstate.previousRandomNumbers.concat(randomNumber)
+                            }));                           
                         }
                     });
                     break;
                 }
+                if(this.state.previousRandomNumbers.length >=3) {
+                    break
+                };
             }
-            
+           
+           } 
         }
     
 
